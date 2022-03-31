@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+
+			form{
+				display: flex;
+				flex-direction: column;
+				width: 500px;
+			}
+
+			input{
+				margin: 3px;
+			}
+
+			button{
+				margin: 3px;
+			}
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Products</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{range .}}
+          <tr>
+            <td>{{.Name}}</td>
+            <td>{{.Description}}</td>
+            <td>{{.Price}}</td>
+            <td>{{.Quantity}}</td>
+          </tr>
+          {{end}}
+        </tbody>
+      </table>
+      <div>
+        <h2>New product</h2>
+				<form method="POST" action="insert">
+					<label for="name">Name: </label></label><input id="name" name="name" type="text" />
+					<label for="description">Description: </label><input id="description" name="description" type="text" />
+					<label for="price">Price: </label><input id="price" name="price" type="number" />
+					<label for="quantity">Quantity: </label><input id="quantity" name="quantity" type="number" />
+					<a href=""> <button>Send</button></a>
+				</form>
+      </div>
+    </div>
+  </body>
+</html>
