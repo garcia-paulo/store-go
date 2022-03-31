@@ -7,6 +7,8 @@ import (
 )
 
 func Load() {
-	http.HandleFunc("/", controllers.Index)
-
+	http.HandleFunc("/", controllers.GetProducts)
+	http.HandleFunc("/insert", controllers.CreateProduct)
+	http.HandleFunc("/delete", controllers.DeleteProduct)
+	http.HandleFunc("/update", controllers.UpdateProduct)
 }

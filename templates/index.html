@@ -37,15 +37,22 @@
             <th>Description</th>
             <th>Price</th>
             <th>Quantity</th>
+						<th colspan="2" >Action</th>
           </tr>
         </thead>
         <tbody>
           {{range .}}
           <tr>
-            <td>{{.Name}}</td>
-            <td>{{.Description}}</td>
-            <td>{{.Price}}</td>
-            <td>{{.Quantity}}</td>
+						<form action="update" method="PATCH">
+							<input type="text" hidden name="id" value="{{.Id}}">
+							<td><input type="text" name="name" value="{{.Name}}"/></td>
+							<td><input type="text" name="description" value="{{.Description}}"/></td>
+							<td><input type="text" name="price" value="{{.Price}}"/></td>
+							<td><input type="text" name="quantity" value="{{.Quantity}}"/></td>
+							<td><button>UPDATE</button></td>
+						</form>
+
+							<td><a href="/delete?id={{.Id}}"><button>DELETE</button></a></td>
           </tr>
           {{end}}
         </tbody>
@@ -57,7 +64,7 @@
 					<label for="description">Description: </label><input id="description" name="description" type="text" />
 					<label for="price">Price: </label><input id="price" name="price" type="number" />
 					<label for="quantity">Quantity: </label><input id="quantity" name="quantity" type="number" />
-					<a href=""> <button>Send</button></a>
+					<div class=""><button>Send</button></div>
 				</form>
       </div>
     </div>
